@@ -1,0 +1,14 @@
+---
+- name: Update and Upgrade Ubuntu Servers
+  hosts: 54.193.30.163
+  become: yes  # Run tasks with elevated privileges (sudo)
+
+  tasks:
+    - name: Update APT package cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+        autoremove: yes
